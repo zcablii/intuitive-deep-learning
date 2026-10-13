@@ -1,0 +1,5 @@
+import { useState } from 'react';
+import { Button, Typography } from '../../../shared/react';
+import { LessonPage } from '../../components/LessonPage';
+import { PhotoStage } from '../../components/PhotoStage';
+export function FlipInvariancePage(){const [flip,setFlip]=useState(false);return <LessonPage id="11" subtitle="同一项操作，对不同任务可以有不同的标签规则。" takeaway="增广是否保留标签，由任务决定；水果分类与左右方向识别不能套用同一规则。"><div className="daa-two daa-equal"><div className="daa-center"><PhotoStage imageStyle={{transform:flip?'scaleX(-1)':'none'}}/><Typography variant="body">水果分类：仍然是苹果</Typography></div><div className="daa-reading"><div className="daa-center"><div className="daa-sign" style={{transform:flip?'scaleX(-1)':'none'}}><svg viewBox="0 0 100 100" aria-label={flip?'向左箭头':'向右箭头'}><path d="M15 40 H57 V22 L87 50 L57 78 V60 H15Z" fill="white"/></svg></div><Typography variant="body">方向任务：{flip?'向左':'向右'}</Typography></div><Button variant="primary" onClick={()=>setFlip(!flip)}><Typography as="span" variant="bodySmall" tone="inherit">同时左右翻转</Typography></Button></div></div></LessonPage>;}

@@ -78,3 +78,14 @@
 .daa-round-pear-caption-left { left: 408px; }
 .daa-round-pear-caption-right { left: 610px; }
 .daa-opening-sack-scene .daa-station-background { mask-image: linear-gradient(to right, black 88%, transparent), linear-gradient(to bottom, transparent, black 10%, black 94%, transparent); mask-composite: intersect; }
+
+.daa-opening-question .dl-question-option.is-correct,
+.daa-opening-question .dl-question-option.is-wrong { position: relative; border-width: 3px; padding-right: 40px; box-shadow: none; }
+.daa-opening-question .dl-question-option.is-correct { border-color: var(--ui-success); background: #d9f0e3; }
+.daa-opening-question .dl-question-option.is-wrong { border-color: var(--ui-danger); background: #f9dde2; }
+.daa-opening-question .dl-question-option.is-correct .dl-option-key { background: var(--ui-success); color: white; }
+.daa-opening-question .dl-question-option.is-wrong .dl-option-key { background: var(--ui-danger); color: white; }
+.daa-opening-question .dl-question-option.is-correct::after,
+.daa-opening-question .dl-question-option.is-wrong::after { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); }
+.daa-opening-question .dl-question-option.is-correct::after { content: '✓'; color: var(--ui-success); }
+.daa-opening-question .dl-question-option.is-wrong::after { content: '✕'; color: var(--ui-danger); }

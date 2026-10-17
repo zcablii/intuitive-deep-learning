@@ -21,6 +21,7 @@ function FruitPhoto({ sample }: { sample: typeof samples[number] }) {
 export function AnnotationOpeningPage() {
   const [intro, setIntro] = useState(true);
   const [revealed, setRevealed] = useState(false);
+  const [judgment, setJudgment] = useState<boolean | null>(null);
   const [labels, setLabels] = useState<Record<string, Label>>({});
   const [checked, setChecked] = useState(false);
   const [focusId, setFocusId] = useState('01');
@@ -72,7 +73,8 @@ export function AnnotationOpeningPage() {
         })}
       </div>}
       {intro ? <aside className="daa-task daa-intro-task">
-        <Question className="daa-opening-question" typeLabel="你的判断" title="这两个人，谁分错了？" answer="unknown" instant showFeedback={false} options={[{value:'a',label:'左边分错了'},{value:'b',label:'右边分错了'},{value:'unknown',label:'现在还不能判断'}]} onCheck={() => setRevealed(true)} />
+        <Question className="daa-opening-question" typeLabel="你的判断" title="这两个人，谁分错了？" answer="unknown" instant showFeedback={false} options={[{value:'a',label:'左边分错了'},{value:'b',label:'右边分错了'},{value:'unknown',label:'现在还不能判断'}]} onCheck={result => { setRevealed(true); setJudgment(result.ok); }} />
+        {judgment !== null && <Typography variant="bodySmall" tone={judgment ? 'success' : 'danger'} role="status">{judgment ? '✓ 判断正确：先明确任务。' : '✕ 先别判错：还要看任务。'}</Typography>}
         <Button variant="primary" disabled={!revealed} onClick={() => setIntro(false)}><Typography as="span" variant="bodySmall" tone="inherit">现在请你按种类标注</Typography></Button>
       </aside> : <aside className="daa-task">
         <div className="daa-task-intro">

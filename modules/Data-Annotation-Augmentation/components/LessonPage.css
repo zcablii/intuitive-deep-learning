@@ -40,8 +40,6 @@
 .daa-dot-row { display: flex; gap: 8px; flex-wrap: wrap; }
 .daa-dot { width: 20px; height: 20px; background: var(--ui-accent); border-radius: 50%; }
 .daa-dot.is-variant { background: var(--ui-accent-alt); }
-.daa-sign { display: grid; place-items: center; width: 250px; height: 250px; border-radius: var(--ui-radius-md); background: var(--ui-accent); }
-.daa-sign svg { width: 170px; height: 170px; }
 .daa-split-layout { gap: 14px; }
 .daa-split-layout .daa-lane { gap: 10px; }
 .daa-split-layout .daa-lane img { width: 120px; height: 80px; }
